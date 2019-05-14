@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BETTY
+Comment=BETTY P2P Cryptocurrency
+Comment[fr]=BETTY, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=BETTY, eşten eşe kriptografik sanal para birimi
+Exec=betty-qt %u
+Terminal=false
+Type=Application
+Icon=betty128
+MimeType=x-scheme-handler/betty;
+Categories=Office;Finance;

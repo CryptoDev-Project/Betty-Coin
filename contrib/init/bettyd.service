@@ -1,0 +1,26 @@
+[Unit]
+Description=BETTY's distributed currency daemon
+After=network.target
+
+[Service]
+User=betty
+Group=betty
+
+Type=forking
+PIDFile=/var/lib/bettyd/bettyd.pid
+
+ExecStart=/usr/bin/bettyd -daemon -pid=/var/lib/bettyd/bettyd.pid \
+          -conf=/etc/betty/betty.conf -datadir=/var/lib/bettyd
+
+ExecStop=-/usr/bin/betty-cli -conf=/etc/betty/betty.conf \
+         -datadir=/var/lib/bettyd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
